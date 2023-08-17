@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Webreathe Test{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Bienvenue sur le projet de test Webreathe</h1>
+            <p class="lead">Ce projet a pour objectif de vérifier vos compétences en programmation informatique.</p>
+            <hr class="my-4">
+
+            <h3>Introduction</h3>
+            <p>
+                Depuis plusieurs années, les objets connectés à internet se multiplient. Cependant, les outils pour vérifier leur fonctionnement et leur disponibilité restent rares. Notre challenge ici est de développer un site web de monitoring de modules IOT.
+            </p>
+
+            <h3>Préambule</h3>
+            <p>
+                Le but n'est pas de réellement connecter des modules, mais simplement de créer un script qui les simule. Le rendu devra être testable chez nous, et les technologies recommandées incluent HTML, CSS, PHP, Bootstrap, Javascript, et Mysql.
+            </p>
+
+            <h3>Sujet</h3>
+            <ul>
+                <li>Création d'une BDD répertoriant les modules, leurs détails et l'historique de fonctionnement.</li>
+                <li>Création d'un formulaire pour inscrire de nouveaux modules.</li>
+                <li>Création d'une page de visualisation de l'état de fonctionnement des modules.</li>
+                <li>Sur l'interface, des notifications visuelles en cas de dysfonctionnement d'un module.</li>
+                <li>Création d'un script de génération automatique d'état des modules.</li>
+            </ul>
+
+            <p>Les modules doivent générer des données numériques et stocker l'historique dans une base de données. Tout doit être simulé pour ce test.</p>
+
+            <a class="btn btn-primary btn-lg" href="#" role="button">Découvrez plus</a>
+        </div>
+    </div>
+{% endblock %}

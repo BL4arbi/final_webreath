@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ApplicationController!{% endblock %}
+
+{% block body %}
+    <div class="d-flex  " ><h1>Mes modules  </h1><a href="/form" class="btn btn-primary custom-button ms-3" >+</a></div>
+    <div class="container mt-4">
+
+        <div class="row">
+            {% for module in listModule %}
+                <div class="col-md-3 mb-4">
+                    <div class="card {{ module.statut?"border-success":"border-danger" }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ module.name }}</h5>
+                            <p class="card-text">Statut : {{ module.statut?"en ligne":"Hors ligne" }}</p>
+                            <a href="{{ path('detailModule', {'id': module.id}) }}" class="btn btn-primary detail-button ">Détail</a>
+                            <a href="{{ path('deleteModule', {'id': module.id}) }}" class="btn btn-danger">Supprimer</a>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    {% block javascripts %}
+        <script>
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    if (!confirm("Êtes-vous sûr de vouloir supprimer ce module ?")) {
+                        event.preventDefault();
+                    }
+                });
+            });
+        </script>
+    {% endblock %}
+
+{% endblock %}

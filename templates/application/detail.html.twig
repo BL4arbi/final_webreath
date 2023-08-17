@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div>
+        {{ detail.detail }}
+
+        <!-- Utilisation des colonnes Bootstrap pour la mise en page -->
+        <div class="row">
+            <!-- Bloc pour la Température -->
+            <div class="col-md-4 chart-container">
+                <div class="chart-header">
+                    <h3>Température <button class="btn btn-primary enlarge-button" data-target="temperatureChart" data-module-id="temperature">Agrandir</button></h3>
+                </div>
+                <canvas id="temperatureChart"></canvas>
+            </div>
+
+            <!-- Bloc pour la Vitesse -->
+            <div class="col-md-4 chart-container">
+                <div class="chart-header">
+                    <h3>Vitesse <button class="btn btn-primary enlarge-button" data-target="speedChart" data-module-id="speed">Agrandir</button></h3>
+                </div>
+                <canvas id="speedChart"></canvas>
+            </div>
+
+            <!-- Bloc pour les Passagers -->
+            <div class="col-md-4 chart-container">
+                <div class="chart-header">
+                    <h3>Passagers <button class="btn btn-primary enlarge-button" data-target="passengerChart" data-module-id="passengers">Agrandir</button></h3>
+                </div>
+                <canvas id="passengerChart"></canvas>
+            </div>
+        </div>
+
+        <button class="btn btn-danger stop-generation-button" data-module-id="{{ detail.id }}">Arrêt</button>
+        <button class="btn btn-success start-generation-button" data-module-id="{{ detail.id }}">Marche</button>
+
+
+
+    </div>
+
+    {% block javascripts %}
+{#        {{ parent() }}#}
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{#        {{ encore_entry_script_tags('detail') }}#}
+    {% endblock %}
+
+{% endblock %}
