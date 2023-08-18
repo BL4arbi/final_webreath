@@ -8,7 +8,7 @@ Ce projet vise à développer un site web pour la surveillance des modules IOT. 
 - [Technologies utilisées](#technologies-utilisées)
 - [Installation et utilisation](#installation-et-utilisation)
 - [Captures d'écran](#captures-décran)
-- [Informations complémentaires](#informations-complémentaires)
+
 
 ## Introduction
 Face à la prolifération des objets connectés à Internet, disposer d'outils robustes pour surveiller leur fonctionnement et leur disponibilité est devenu primordial. Ce projet répond à cette nécessité en offrant un outil web pour le monitoring des modules IOT.
@@ -27,8 +27,17 @@ Face à la prolifération des objets connectés à Internet, disposer d'outils r
 - JavaScript
 - MariaDB
 - Symfony
+###- [Installation et utilisation](#installation-et-utilisation)
 
-## Captures d'écran
+Git clone du projet
+composer install
+symfony console doctrine:create:database
+symfony console doctrine:migration:migrate
+npm install 
+symfony serve
+npm run dev
+
+#### Captures d'écran
 
 ![Pages d'accueil](https://github.com/BL4arbi/final_webreath/assets/142533784/e01f65e8-121b-4641-807b-272ab89bf0fc)
 
