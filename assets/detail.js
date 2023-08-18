@@ -49,33 +49,70 @@ function startDataGeneration(moduleId) {
             });
     }, 2000);
 }
+function resetOtherCharts(target) {
+    document.querySelectorAll('.chart-container.expanded').forEach(chartContainer => {
+        if (chartContainer !== target) {
+            chartContainer.classList.remove('expanded');
+            const enlargeButton = chartContainer.querySelector('.enlarge-button');
+            const reduceButton = chartContainer.querySelector('.reduce-button');
+            if (enlargeButton) enlargeButton.style.display = 'block';
+            if (reduceButton) reduceButton.style.display = 'none';
+        }
+    });
+}
+
 document.querySelectorAll('.enlarge-button').forEach(button => {
     button.addEventListener('click', function() {
-        const target = this.getAttribute('data-target');
-        const targetElement = document.getElementById(target);
-        const parentDiv = targetElement.closest('.chart-container');
+        const targetElement = document.getElementById(this.getAttribute('data-target')).closest('.chart-container');
+        resetOtherCharts(targetElement);  // Réinitialisez les autres graphiques
 
-        if (parentDiv.classList.contains('expanded')) {
-            parentDiv.classList.remove('expanded');
-            this.textContent = 'Agrandir';
-        } else {
-            // Réduisez tous les graphiques
-            document.querySelectorAll('.chart-container.expanded').forEach(chart => {
-                chart.classList.remove('expanded');
-            });
-            document.querySelectorAll('.enlarge-button').forEach(btn => {
-                btn.textContent = 'Agrandir';
-            });
+        if (!targetElement.classList.contains('expanded')) {
+            targetElement.classList.add('expanded');
+            this.style.display = 'none';
+            const associatedReduceButton = targetElement.querySelector('.reduce-button');
+            if (associatedReduceButton) {
+                associatedReduceButton.style.display = 'block';
+            }
 
-            // Agrandissez le graphique sélectionné
-            parentDiv.classList.add('expanded');
-            this.textContent = 'Réduire';
+            toggleNavbar(true);  // Cache la navbar
+        }
+    });
+});
+
+document.querySelectorAll('.reduce-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const targetElement = document.getElementById(this.getAttribute('data-target')).closest('.chart-container');
+        if (targetElement.classList.contains('expanded')) {
+            targetElement.classList.remove('expanded');
+            this.style.display = 'none';
+            const associatedEnlargeButton = targetElement.querySelector('.enlarge-button');
+            if (associatedEnlargeButton) {
+                associatedEnlargeButton.style.display = 'block';
+            }
+
+            toggleNavbar(false);  // Montre la navbar
         }
     });
 });
 
 function initializeChart(chartId, label, data) {
     const ctx = document.getElementById(chartId).getContext('2d');
+
+    let borderColor;
+    switch(chartId) {
+        case 'temperatureChart':
+            borderColor = 'red';
+            break;
+        case 'speedChart':
+            borderColor = 'blue';
+            break;
+        case 'passengerChart':
+            borderColor = 'green';
+            break;
+        default:
+            borderColor = 'rgba(75, 192, 192, 1)'; // couleur par défaut
+    }
+
     return new Chart(ctx, {
         type: 'line',
         data: {
@@ -83,7 +120,7 @@ function initializeChart(chartId, label, data) {
             datasets: [{
                 label: chartId,
                 data: [data],
-                borderColor: 'rgba(75, 192, 192, 1)',
+                borderColor: borderColor,  // utilisation de la couleur définie précédemment
                 borderWidth: 1,
                 fill: false
             }]
@@ -97,6 +134,8 @@ function initializeChart(chartId, label, data) {
         }
     });
 }
+
+
 
 function updateChart(chartId, label, data) {
     const chart = charts[chartId];

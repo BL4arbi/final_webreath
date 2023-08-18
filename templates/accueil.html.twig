@@ -4,33 +4,65 @@
 
 {% block body %}
     <div class="container mt-5">
-        <div class="jumbotron">
+
+        <div class="jumbotron bg-light">
             <h1 class="display-4">Bienvenue sur le projet de test Webreathe</h1>
             <p class="lead">Ce projet a pour objectif de vérifier vos compétences en programmation informatique.</p>
             <hr class="my-4">
 
-            <h3>Introduction</h3>
-            <p>
-                Depuis plusieurs années, les objets connectés à internet se multiplient. Cependant, les outils pour vérifier leur fonctionnement et leur disponibilité restent rares. Notre challenge ici est de développer un site web de monitoring de modules IOT.
-            </p>
+            <!-- Introduction Card -->
+            <div class="card mb-3">
+                <div class="card-header bg-info text-white">
+                    Introduction
+                </div>
+                <div class="card-body">
+                    <p>Depuis plusieurs années, les objets connectés à internet se multiplient. Cependant, les outils pour vérifier leur fonctionnement et leur disponibilité restent rares. Notre challenge ici est de développer un site web de monitoring de modules IOT.</p>
+                </div>
+            </div>
 
-            <h3>Préambule</h3>
-            <p>
-                Le but n'est pas de réellement connecter des modules, mais simplement de créer un script qui les simule. Le rendu devra être testable chez nous, et les technologies recommandées incluent HTML, CSS, PHP, Bootstrap, Javascript, et Mysql.
-            </p>
+            <!-- Preamble Card -->
+            <div class="card mb-3">
+                <div class="card-header bg-success text-white">
+                    Préambule
+                </div>
+                <div class="card-body">
+                    <p>Le but n'est pas de réellement connecter des modules, mais simplement de créer un script qui les simule. Le rendu devra être testable chez nous, et les technologies recommandées incluent <span class="badge bg-primary" data-bs-toggle="tooltip" title="HyperText Markup Language">HTML</span>, <span class="badge bg-secondary" data-bs-toggle="tooltip" title="Cascading Style Sheets">CSS</span>, <span class="badge bg-danger" data-bs-toggle="tooltip" title="Preprocessor">PHP</span>, <span class="badge bg-warning text-dark" data-bs-toggle="tooltip" title="Bootstrap">Bootstrap</span>, <span class="badge bg-info text-dark" data-bs-toggle="tooltip" title="JavaScript">Javascript</span>, et <span class="badge bg-dark" data-bs-toggle="tooltip" title="MySQL Database">Mysql</span>.</p>
+                </div>
+            </div>
 
-            <h3>Sujet</h3>
-            <ul>
-                <li>Création d'une BDD répertoriant les modules, leurs détails et l'historique de fonctionnement.</li>
-                <li>Création d'un formulaire pour inscrire de nouveaux modules.</li>
-                <li>Création d'une page de visualisation de l'état de fonctionnement des modules.</li>
-                <li>Sur l'interface, des notifications visuelles en cas de dysfonctionnement d'un module.</li>
-                <li>Création d'un script de génération automatique d'état des modules.</li>
-            </ul>
+            <!-- Subject Card -->
+            <div class="card mb-3">
+                <div class="card-header bg-warning text-dark">
+                    Sujet
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Création d'une BDD répertoriant les modules, leurs détails et l'historique de fonctionnement.</li>
+                        <li>Création d'un formulaire pour inscrire de nouveaux modules.</li>
+                        <li>Création d'une page de visualisation de l'état de fonctionnement des modules.</li>
+                        <li>Sur l'interface, des notifications visuelles en cas de dysfonctionnement d'un module.</li>
+                        <li>Création d'un script de génération automatique d'état des modules.</li>
+                    </ul>
+                    <p>Les modules doivent générer des données numériques et stocker l'historique dans une base de données. Tout doit être simulé pour ce test.</p>
+                </div>
+            </div>
 
-            <p>Les modules doivent générer des données numériques et stocker l'historique dans une base de données. Tout doit être simulé pour ce test.</p>
+            <!-- Progress Bar -->
+            <div class="mb-3">
+                <p>Progression du projet :</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                </div>
+            </div>
 
-            <a class="btn btn-primary btn-lg" href="#" role="button">Découvrez plus</a>
+
         </div>
     </div>
+    <script>
+        // Initialization for tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 {% endblock %}

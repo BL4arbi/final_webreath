@@ -2,12 +2,12 @@ body {
     background-color: lightgray;
 }
 
-.custom-button{
-    width:50px!important;
-    height:50px!important;
-    font-size:2em;
-
+.custom-button {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 2em;
 }
+
 .chart-header h3 {
     display: flex;
     align-items: center;
@@ -18,14 +18,19 @@ body {
     margin-left: 10px;
 }
 
+.chart-container {
+    transition: all 0.3s;
+}
+
 .chart-container.expanded {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1000;
+    z-index: 2000;
     background-color: white;
+    margin-top: 100px; /* Ajustez cette valeur en fonction de la hauteur de votre barre de navigation. */
 }
 
 .chart-container.expanded canvas {
@@ -35,15 +40,22 @@ body {
 
 .chart-container.expanded .chart-header {
     position: absolute;
-    top: 1rem;
+    top: 10rem;
     right: 1rem;
 }
-.chart-container.expanded {
-    /* définissez le style pour un affichage agrandi, par exemple: */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
+
+.module-detail {
+    border: 1px solid #e0e0e0;
+    font-size: 1.1em;
 }
+
+.navbar {
+    height: 50px;
+    position: relative;
+    z-index: 999;
+}
+
+.enlarge-button, .reduce-button {
+    z-index: 3000;
+}
+

@@ -3,26 +3,32 @@
 {% block title %}Hello ApplicationController!{% endblock %}
 
 {% block body %}
-    <div class="d-flex  " ><h1>Mes modules  </h1><a href="/form" class="btn btn-primary custom-button ms-3" >+</a></div>
     <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Mes modules</h1>
+            <a href="/form" class="btn btn-primary custom-button ms-3">
+                +
+            </a>
+        </div>
 
         <div class="row">
             {% for module in listModule %}
                 <div class="col-md-3 mb-4">
-                    <div class="card {{ module.statut?"border-success":"border-danger" }}">
+                    <div class="card shadow-sm {{ module.statut?"border-success":"border-danger" }} h-100">
                         <div class="card-body">
-                            <h5 class="card-title">{{ module.name }}</h5>
-                            <p class="card-text">Statut : {{ module.statut?"en ligne":"Hors ligne" }}</p>
-                            <a href="{{ path('detailModule', {'id': module.id}) }}" class="btn btn-primary detail-button ">Détail</a>
-                            <a href="{{ path('deleteModule', {'id': module.id}) }}" class="btn btn-danger">Supprimer</a>
-
+                            <h5 class="card-title mb-3">{{ module.name }}</h5>
+                            <p class="card-text mb-3">Statut : <span class="fw-bold">{{ module.statut?"en ligne":"Hors ligne" }}</span></p>
+                            <div class="d-grid gap-2">
+                                <a href="{{ path('detailModule', {'id': module.id}) }}" class="btn btn-primary mb-2 detail-button">Détail</a>
+                                <a href="{{ path('deleteModule', {'id': module.id}) }}" class="btn btn-danger delete-button">Supprimer</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
-
     </div>
+
     {% block javascripts %}
         <script>
             document.querySelectorAll('.delete-button').forEach(button => {
@@ -34,5 +40,4 @@
             });
         </script>
     {% endblock %}
-
 {% endblock %}

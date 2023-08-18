@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
+    <div class="container mt-4">
+        <form action="/newModule" method="post">
 
-    <form action="/newModule" method="post">
-        <div class="mb-3">
-            <label for="nameModule" class="form-label">Nom module</label>
-            <input type="text" id="nameModule" name="nameModule" autocomplete="off">
-            <div id="emailHelp" class="form-text">Entrez le nom de votre module</div>
-        </div>
-        <div class="mb-3">
-            <label for="detailModule" class="form-label">Détail Module</label>
-            <textarea  id="detailModule" name="detailModule" autocomplete="off" rows="3" ></textarea>
-            <div id="emailHelp" class="form-text">Entrez une description de votre module</div>
+            <!-- Nom module -->
+            <div class="mb-3">
+                <label for="nameModule" class="form-label">Nom module</label>
+                <input type="text" id="nameModule" name="nameModule" class="form-control" autocomplete="off">
+                <div id="nameHelp" class="form-text">Entrez le nom de votre module</div>
+            </div>
 
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- Détail Module -->
+            <div class="mb-3">
+                <label for="detailModule" class="form-label">Détail Module</label>
+                <textarea id="detailModule" name="detailModule" class="form-control" autocomplete="off" rows="3"></textarea>
+                <div id="detailHelp" class="form-text">Entrez une description de votre module</div>
+            </div>
 
-    </form>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+
 {% endblock %}

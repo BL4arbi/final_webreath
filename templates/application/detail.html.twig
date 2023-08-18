@@ -1,46 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div>
-        {{ detail.detail }}
+    <div class="container mt-4">
+        <!-- Zone pour le détail du module -->
+        <div class="module-detail mb-4 p-3 rounded bg-white shadow-sm">
+            {{ detail.detail }}
+        </div>
 
         <!-- Utilisation des colonnes Bootstrap pour la mise en page -->
         <div class="row">
-            <!-- Bloc pour la Température -->
-            <div class="col-md-4 chart-container">
-                <div class="chart-header">
-                    <h3>Température <button class="btn btn-primary enlarge-button" data-target="temperatureChart" data-module-id="temperature">Agrandir</button></h3>
-                </div>
-                <canvas id="temperatureChart"></canvas>
-            </div>
+            <!-- Chaque bloc pour les graphiques -->
+            {% set chartNames = ['Température', 'Vitesse', 'Passagers'] %}
+            {% set chartIds = ['temperatureChart', 'speedChart', 'passengerChart'] %}
+            {% set moduleIds = ['temperature', 'speed', 'passengers'] %}
 
-            <!-- Bloc pour la Vitesse -->
-            <div class="col-md-4 chart-container">
-                <div class="chart-header">
-                    <h3>Vitesse <button class="btn btn-primary enlarge-button" data-target="speedChart" data-module-id="speed">Agrandir</button></h3>
+            {% for i in 0..2 %}
+                <div class="col-md-4 chart-container mb-4">
+                    <div class="chart-header d-flex justify-content-between align-items-center">
+                        <h3>{{ chartNames[i] }}</h3>
+                        <button class="btn btn-primary enlarge-button" data-target="{{ chartIds[i] }}" data-module-id="{{ moduleIds[i] }}">Agrandir</button>
+                        <button class="btn btn-warning reduce-button" data-target="{{ chartIds[i] }}" data-module-id="{{ moduleIds[i] }}" style="display:none;">Réduire</button>
+                    </div>
+                    <canvas id="{{ chartIds[i] }}"></canvas>
                 </div>
-                <canvas id="speedChart"></canvas>
-            </div>
-
-            <!-- Bloc pour les Passagers -->
-            <div class="col-md-4 chart-container">
-                <div class="chart-header">
-                    <h3>Passagers <button class="btn btn-primary enlarge-button" data-target="passengerChart" data-module-id="passengers">Agrandir</button></h3>
-                </div>
-                <canvas id="passengerChart"></canvas>
-            </div>
+            {% endfor %}
         </div>
 
-        <button class="btn btn-danger stop-generation-button" data-module-id="{{ detail.id }}">Arrêt</button>
-        <button class="btn btn-success start-generation-button" data-module-id="{{ detail.id }}">Marche</button>
-
-
+        <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-danger stop-generation-button" data-module-id="{{ detail.id }}">Arrêt</button>
+            <button class="btn btn-success start-generation-button" data-module-id="{{ detail.id }}">Marche</button>
+        </div>
 
     </div>
 
     {% block javascripts %}
-{#        {{ parent() }}#}
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-{#        {{ encore_entry_script_tags('detail') }}#}
     {% endblock %}
 
 {% endblock %}
