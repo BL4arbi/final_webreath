@@ -27,7 +27,8 @@ Face à la prolifération des objets connectés à Internet, disposer d'outils r
 - JavaScript
 - MariaDB
 - Symfony
-###- [Installation et utilisation]
+  
+### Installation et utilisation
 
 Git clone du projet
 composer install
