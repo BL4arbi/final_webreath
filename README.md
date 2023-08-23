@@ -30,13 +30,14 @@ Face à la prolifération des objets connectés à Internet, disposer d'outils r
   
 ### Installation et utilisation
 
-Git clone du projet
-composer install
-symfony console doctrine:create:database
-symfony console doctrine:migration:migrate
-npm install 
-symfony serve
-npm run dev
+-Git clone du projet
+-composer install
+-npm install
+-symfony console doctrine:create:database
+-symfony console doctrine:migration:migrate
+-npm install 
+-symfony serve
+-npm run dev
 
 #### Captures d'écran
 
