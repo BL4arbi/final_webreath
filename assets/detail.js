@@ -169,8 +169,6 @@ document.querySelector('.stop-generation-button').addEventListener('click', func
             })
             .then(data => {
                 console.log(data);
-                // Ici, vous pouvez ajouter du code pour afficher un message de succès à l'utilisateur
-                // ou pour mettre à jour l'interface en conséquence.
             })
             .catch(error => {
                 console.error(`problème avec le fetch: ${error.message}`);
@@ -199,7 +197,7 @@ document.querySelector('.start-generation-button').addEventListener('click', fun
         .then(data => {
             console.log(data.message);
 
-            // Relancez la génération de données
+            // Relance la génération de données
             startDataGeneration(moduleId);
         })
         .catch(error => {

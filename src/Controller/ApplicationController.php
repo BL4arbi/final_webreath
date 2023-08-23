@@ -73,7 +73,7 @@ class ApplicationController extends AbstractController
         }
 
         $service = new FactoryModuleData();
-        // Créez les trois types de ModuleData ici
+        //trois types de ModuleData ici
 
         $data[] = $service->create(random_int(1,5), $module, $moduleDataRepository, 'Température');
         $data[] = $service->create(random_int(1,5), $module, $moduleDataRepository, 'Vitesse');
