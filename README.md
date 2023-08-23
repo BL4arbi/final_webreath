@@ -32,7 +32,7 @@ Face à la prolifération des objets connectés à Internet, disposer d'outils r
 - Git clone du projet
 - composer install
 - npm install
-- symfony console doctrine:create:database
+- symfony console doctrine:database:create
 - symfony console doctrine:migration:migrate
 - npm install 
 - symfony serve
