@@ -1,6 +1,6 @@
 # Monitoring de Modules IOT
 
-Ce projet vise à développer un site web pour la surveillance des modules IOT. Il a été réalisé dans le cadre d'un test visant à évaluer les compétences en programmation.
+Ce projet vise à développer un site web pour ;ieux comprendre la gestion d'une base de données
 
 ## Table des matières
 - [Introduction](#introduction)
@@ -9,9 +9,6 @@ Ce projet vise à développer un site web pour la surveillance des modules IOT. 
 - [Installation et utilisation](#installation-et-utilisation)
 - [Captures d'écran](#captures-décran)
 
-
-## Introduction
-Face à la prolifération des objets connectés à Internet, disposer d'outils robustes pour surveiller leur fonctionnement et leur disponibilité est devenu primordial. Ce projet répond à cette nécessité en offrant un outil web pour le monitoring des modules IOT.
 
 ## Fonctionnalités
 - **Base de données des modules**: Elle répertorie les modules, leurs détails et leur historique de fonctionnement.
