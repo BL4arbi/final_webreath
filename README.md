@@ -1,6 +1,6 @@
 # Monitoring de Modules IOT
 
-Ce projet vise à développer un site web pour ;ieux comprendre la gestion d'une base de données
+Ce projet vise à développer un site web pour mieux comprendre la gestion d'une base de données
 
 ## Table des matières
 - [Introduction](#introduction)
